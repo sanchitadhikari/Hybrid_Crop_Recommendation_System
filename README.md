@@ -1,4 +1,4 @@
-# 🌾 Hybrid Crop Recommendation System
+## Hybrid Crop Recommendation System
 
 <div align="center">
 
@@ -19,7 +19,7 @@
 
 ---
 
-## 📌 Overview
+ Overview
 
 The **Hybrid Crop Recommendation System** predicts the most suitable crop to cultivate based on soil nutrients and environmental conditions. It analyzes **7 key agricultural parameters** — Nitrogen (N), Phosphorus (P), Potassium (K), temperature, humidity, pH level, and rainfall — to deliver accurate, explainable, and confidence-rated crop recommendations.
 
@@ -38,27 +38,27 @@ Input: [N, P, K, Temperature, Humidity, pH, Rainfall]
          │   Meta-Learner (Stacking)  │
          └────────────┬───────────────┘
                       ↓
-     🌾 Recommended Crop + Confidence + SHAP
+     Recommended Crop + Confidence + SHAP
 ```
 
 ---
 
-## ✨ Features
+##  Features
 
 | Feature | Description |
 |---------|-------------|
-| 🤖 **8 ML Models** | Random Forest, XGBoost, LightGBM, CatBoost, TabNet, SVM, KNN, Decision Tree |
-| 🏆 **Stacking Ensemble** | Meta-learner combining base model predictions for highest accuracy |
-| 🔍 **SHAP Explainability** | Global importance, beeswarm plots, per-crop heatmap, single-prediction waterfall |
-| 📐 **Uncertainty Estimation** | Monte Carlo sampling via Random Forest tree disagreement |
-| 📊 **Rich Visualizations** | 15+ chart types — violin plots, correlation heatmaps, learning curves, confusion matrices |
-| 🚀 **FastAPI Backend** | REST API for real-time crop predictions |
-| 📧 **Email Notifications** | Automated crop recommendation reports via Gmail |
-| 🧪 **Google Colab Ready** | Full notebook with step-by-step execution |
+|  **8 ML Models** | Random Forest, XGBoost, LightGBM, CatBoost, TabNet, SVM, KNN, Decision Tree |
+|  **Stacking Ensemble** | Meta-learner combining base model predictions for highest accuracy |
+|  **SHAP Explainability** | Global importance, beeswarm plots, per-crop heatmap, single-prediction waterfall |
+|  **Uncertainty Estimation** | Monte Carlo sampling via Random Forest tree disagreement |
+|  **Rich Visualizations** | 15+ chart types — violin plots, correlation heatmaps, learning curves, confusion matrices |
+|  **FastAPI Backend** | REST API for real-time crop predictions |
+|  **Email Notifications** | Automated crop recommendation reports via Gmail |
+|  **Google Colab Ready** | Full notebook with step-by-step execution |
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 The system is trained on the [Crop Recommendation Dataset](https://www.kaggle.com/datasets/atharvaingle/crop-recommendation-dataset) from Kaggle.
 
@@ -86,7 +86,7 @@ The system is trained on the [Crop Recommendation Dataset](https://www.kaggle.co
 
 ---
 
-## 🧠 ML Architecture
+##  ML Architecture
 
 ### Base Models
 
@@ -130,7 +130,7 @@ The system is trained on the [Crop Recommendation Dataset](https://www.kaggle.co
 
 ---
 
-## 🏆 Model Results
+##  Model Results
 
 > Results on 20% held-out test set (440 samples) with 5-Fold Cross-Validation
 
@@ -153,7 +153,7 @@ The system is trained on the [Crop Recommendation Dataset](https://www.kaggle.co
 =======================================================
   Input: N=90, P=42, K=43, Temp=20.8°C, Humidity=82%, pH=6.5, Rainfall=202.9mm
 
-  🌾 RECOMMENDED CROP : RICE
+   RECOMMENDED CROP : RICE
   Model              : Stacking Ensemble
   Confidence         : 98.2%
   Uncertainty Score  : 0.0198
@@ -167,7 +167,7 @@ The system is trained on the [Crop Recommendation Dataset](https://www.kaggle.co
 
 ---
 
-## 🔍 SHAP Explainability
+## SHAP Explainability
 
 The system uses SHAP to make every prediction transparent and interpretable.
 
@@ -185,7 +185,7 @@ The system uses SHAP to make every prediction transparent and interpretable.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 crop-recommendation-system/
@@ -361,7 +361,7 @@ curl -X POST "http://127.0.0.1:8081/predict" \
 
 ---
 
-## 🧪 Google Colab Notebook
+##  Google Colab Notebook
 
 The notebook covers all 16 steps with rich visualizations:
 
@@ -386,7 +386,7 @@ The notebook covers all 16 steps with rich visualizations:
 
 ---
 
-## 📦 Tech Stack
+## Tech Stack
 
 ### Machine Learning
 `scikit-learn` · `XGBoost` · `LightGBM` · `CatBoost` · `pytorch-tabnet` · `SHAP`
@@ -405,25 +405,23 @@ The notebook covers all 16 steps with rich visualizations:
 
 ---
 
-## 🔭 Future Improvements
+##  Future Improvements
 
-- [ ] Integration with real-time agricultural market price APIs (Mandi prices)
-- [ ] Docker + Kubernetes deployment
-- [ ] AWS / GCP cloud deployment
-- [ ] Mobile application for farmers (React Native)
-- [ ] Multilingual support (Hindi, Punjabi, Tamil)
-- [ ] Soil image analysis using CNNs
-- [ ] Weather API integration for auto-filling temperature/humidity/rainfall
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+- Integration with real-time agricultural market price APIs (Mandi prices)
+-  Docker + Kubernetes deployment
+-  AWS / GCP cloud deployment
+-  Mobile application for farmers (React Native)
+-  Multilingual support (Hindi, Punjabi, Tamil)
+-  Soil image analysis using CNNs
+-  Weather API integration for auto-filling temperature/humidity/rainfall
 
 ---
 
-## 🙌 Acknowledgements
+
+
+
+
+##  Acknowledgements
 
 - Dataset: [Atharva Ingle — Crop Recommendation Dataset](https://www.kaggle.com/datasets/atharvaingle/crop-recommendation-dataset) on Kaggle
 - SHAP library: [Lundberg & Lee, 2017](https://github.com/shap/shap)
@@ -432,5 +430,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 <div align="center">
-Made with ❤️ for smarter, data-driven agriculture
+Made with  for smarter, data-driven agriculture
 </div>
