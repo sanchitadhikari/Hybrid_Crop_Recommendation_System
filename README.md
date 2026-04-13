@@ -145,25 +145,14 @@ The system is trained on the [Crop Recommendation Dataset](https://www.kaggle.co
 | 9 | Naive Bayes | 88.64% | 88.41% ± 0.91% |
 
 **Sample prediction output:**
-```
-=======================================================
-  CROP RECOMMENDATION RESULT
-=======================================================
-  Input: N=90, P=42, K=43, Temp=20.8°C, Humidity=82%, pH=6.5, Rainfall=202.9mm
 
-   RECOMMENDED CROP : RICE
-  Model              : Stacking Ensemble
-  Confidence         : 98.2%
-  Uncertainty Score  : 0.0198
-
-  Top 3 Candidates:
-    rice             98.2%  ███████████████████
-    jute              0.5%
-    pigeonpeas        0.1%
-=======================================================
-```
-
----
+| **7 ML Models** | Random Forest, XGBoost, LightGBM, CatBoost, SVM, KNN, Decision Tree |
+| **Stacking Ensemble** | Meta-learner (RF + XGBoost + LightGBM + CatBoost + SVM) with Logistic Regression as meta-learner |
+| **SHAP Explainability** | Global feature importance, beeswarm per crop, full heatmap (all crops × features), single-prediction waterfall |
+| **Uncertainty Estimation** | Monte Carlo sampling via Random Forest tree disagreement — returns confidence score per prediction |
+| **Rich Visualizations** | Histograms, box plots, violin plots, pairplot, Pearson & Spearman heatmaps, confusion matrices, F1 bar chart, learning curves, feature importance bars, SHAP scatter plots |
+| **Prediction Function** | `predict_crop(N, P, K, temp, humidity, ph, rainfall)` — works with any trained model |
+| **Google Colab Ready** | Upload CSV via `files.upload()`, runs end-to-end with step-by-step cells |
 
 ## SHAP Explainability
 
@@ -185,29 +174,23 @@ The system uses SHAP to make every prediction transparent and interpretable.
 
 ##  Project Structure
 
-```
 crop-recommendation-system/
 │
-├── app/                          ← FastAPI backend
-│   ├── main.py                   ← App entry point & routes
-│   ├── predict_api.py            ← Prediction endpoint logic
-│   ├── price_fallback.py         ← Market price fallback handler
-│   └── crop_mapping.py           ← Crop name ↔ ID mappings
-│
 ├── ml/                           ← Machine learning modules
-│   ├── preprocess.py             ← Data cleaning, scaling, splitting
-│   ├── train_models.py           ← Train RF, XGBoost, LightGBM, CatBoost
-│   ├── tabnet_model.py           ← TabNet deep learning model
-│   ├── ensemble.py               ← Stacking ensemble builder
-│   ├── explainability.py         ← SHAP plots and analysis
-│   └── uncertainty.py            ← Monte Carlo uncertainty estimation
+│   ├── preprocess.py             ← Label encoding, StandardScaler, train/test split
+│   ├── train_models.py           ← Train RF, XGBoost, LightGBM, CatBoost, SVM, KNN, DT
+│   ├── ensemble.py               ← Stacking ensemble (LR meta-learner)
+│   ├── explainability.py         ← SHAP: global, beeswarm, heatmap, waterfall, scatter
+│   └── uncertainty.py            ← Monte Carlo via RF tree disagreement
 │
 ├── models/                       ← Saved model files (auto-generated)
 │   ├── model_rf.pkl
 │   ├── model_xgb.pkl
 │   ├── model_lgbm.pkl
 │   ├── model_catboost.pkl
-│   ├── model_tabnet.zip
+│   ├── model_svm.pkl
+│   ├── model_knn.pkl
+│   ├── model_dt.pkl
 │   ├── stacked_model.pkl
 │   ├── scaler.pkl
 │   └── label_encoder.pkl
@@ -215,48 +198,39 @@ crop-recommendation-system/
 ├── data/
 │   └── crop_recommendation.csv   ← Dataset (download from Kaggle)
 │
-├── static/                       ← Static files for frontend
-├── templates/                    ← HTML templates
 ├── notebooks/
-│   └── Hybrid_Crop_Recommendation_System.ipynb  ← Full Colab notebook
+│   └── crop_recommendation.ipynb ← Full Colab notebook
 │
 ├── requirements.txt
-├── .env.example
+├── .gitignore
 └── README.md
-```
-
----
 
 
 
 | Step | Content |
 |------|---------|
-| 1 | Install libraries |
-| 2 | Import all packages |
-| 3 | Load dataset |
-| 4 | EDA — distributions, box plots, correlations, violin plots, pairplot |
-| 5 | Preprocessing — label encoding, feature scaling, train/test split |
-| 6 | Train 8 ML models with cross-validation |
-| 7 | Model comparison charts + CV error bars |
-| 8 | Confusion matrices (full + mini grid for all models) |
-| 9 | Per-class F1 score analysis |
-| 10 | Feature importance (4 tree models + aggregated) |
-| 11 | Learning curves (bias-variance analysis) |
-| 12 | Stacking ensemble with final scoreboard |
-| 13 | SHAP — 5 plot types |
-| 14 | Monte Carlo uncertainty estimation |
-| 15 | Interactive prediction function |
-| 16 | Summary |
+| 1  | Install libraries — xgboost, lightgbm, catboost, shap |
+| 2  | Import all packages — numpy, pandas, sklearn, matplotlib, seaborn, shap |
+| 3  | Load dataset — upload CSV via Google Colab, shape & preview |
+| 4  | EDA — crop distribution (bar + pie), feature histograms, box plots, Pearson & Spearman heatmaps, violin plots per crop, pairplot (8 crops sample) |
+| 5  | Preprocessing — label encoding, StandardScaler, train/test split, before vs after scaling visualization |
+| 6  | Train 7 ML models — RF, XGBoost, LightGBM, CatBoost, SVM, KNN, Decision Tree with 5-fold stratified CV |
+| 7  | Model comparison — test accuracy + CV mean/std with error bars |
+| 8  | Confusion matrices — full matrix for best model + mini 2×4 grid for all models |
+| 9  | Per-class F1 score — classification report + color-coded bar chart |
+| 10 | Feature importance — individual bars for 4 tree models + aggregated mean with std error bars |
+| 11 | Learning curves — bias-variance analysis for RF, XGBoost, LightGBM, SVM |
+| 12 | Stacking ensemble — RF + XGBoost + LightGBM + CatBoost + SVM → Logistic Regression meta-learner + final scoreboard |
+| 13 | SHAP — global importance, beeswarm (top 5 crops), heatmap (all crops × features), single-prediction waterfall, dependence scatter plots |
+| 14 | Monte Carlo uncertainty — RF tree disagreement, confidence score distribution across test set |
+| 15 | Prediction function — `predict_crop(N, P, K, temperature, humidity, ph, rainfall)` with 4 example predictions |
 
 ---
 
 ## Tech Stack
 
 ### Machine Learning
-`scikit-learn` · `XGBoost` · `LightGBM` · `CatBoost` · `pytorch-tabnet` · `SHAP`
-
-### Backend
-`FastAPI` · `Uvicorn` · `Python-dotenv`
+`scikit-learn` · `XGBoost` · `LightGBM` · `CatBoost` · `SHAP`
 
 ### Data Processing
 `Pandas` · `NumPy`
@@ -264,22 +238,22 @@ crop-recommendation-system/
 ### Visualization
 `Matplotlib` · `Seaborn`
 
-### Utilities
-`ReportLab` · `Joblib`
+---
 
 ---
 
 ##  Future Improvements
 
+- FastAPI backend for real-time crop prediction REST API
+- TabNet deep learning model integration
+- Docker + Kubernetes deployment
+- AWS / GCP cloud deployment
+- Mobile application for farmers (React Native)
+- Multilingual support (Hindi, Punjabi, Tamil)
+- Soil image analysis using CNNs
+- Weather API integration for auto-filling temperature, humidity, and rainfall
 - Integration with real-time agricultural market price APIs (Mandi prices)
--  Docker + Kubernetes deployment
--  AWS / GCP cloud deployment
--  Mobile application for farmers (React Native)
--  Multilingual support (Hindi, Punjabi, Tamil)
--  Soil image analysis using CNNs
--  Weather API integration for auto-filling temperature/humidity/rainfall
-
----
+- Email notification system for automated crop recommendation reports
 
 
 
@@ -289,10 +263,10 @@ crop-recommendation-system/
 
 - Dataset: [Atharva Ingle — Crop Recommendation Dataset](https://www.kaggle.com/datasets/atharvaingle/crop-recommendation-dataset) on Kaggle
 - SHAP library: [Lundberg & Lee, 2017](https://github.com/shap/shap)
-- TabNet: [Arik & Pfister, 2021](https://github.com/dreamquark-ai/tabnet)
-
+- XGBoost: [Chen & Guestrin, 2016](https://github.com/dmlc/xgboost)
+- LightGBM: [Ke et al., 2017](https://github.com/microsoft/LightGBM)
+- CatBoost: [Prokhorenkova et al., 2018](https://github.com/catboost/catboost)
+- Scikit-learn: [Pedregosa et al., 2011](https://scikit-learn.org)
 ---
 
-<div align="center">
-Made with  for smarter, data-driven agriculture
-</div>
+
