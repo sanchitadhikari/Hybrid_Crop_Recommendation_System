@@ -47,14 +47,12 @@ Input: [N, P, K, Temperature, Humidity, pH, Rainfall]
 
 | Feature | Description |
 |---------|-------------|
-|  **8 ML Models** | Random Forest, XGBoost, LightGBM, CatBoost, TabNet, SVM, KNN, Decision Tree |
-|  **Stacking Ensemble** | Meta-learner combining base model predictions for highest accuracy |
-|  **SHAP Explainability** | Global importance, beeswarm plots, per-crop heatmap, single-prediction waterfall |
-|  **Uncertainty Estimation** | Monte Carlo sampling via Random Forest tree disagreement |
-|  **Rich Visualizations** | 15+ chart types — violin plots, correlation heatmaps, learning curves, confusion matrices |
-|  **FastAPI Backend** | REST API for real-time crop predictions |
-|  **Email Notifications** | Automated crop recommendation reports via Gmail |
-|  **Google Colab Ready** | Full notebook with step-by-step execution |
+|  **8 ML Models** | Random Forest, XGBoost, LightGBM, CatBoost, SVM, KNN, Decision Tree, Stacking Ensemble |
+| **Stacking Ensemble** | Meta-learner combining base model predictions for highest accuracy |
+| **SHAP Explainability** | Global importance, beeswarm plots, per-crop heatmap, single-prediction waterfall |
+| **Uncertainty Estimation** | Monte Carlo sampling via Random Forest tree disagreement |
+| **Rich Visualizations** | 15+ chart types — violin plots, correlation heatmaps, learning curves, confusion matrices |
+| **Google Colab Ready** | Full notebook with step-by-step execution |
 
 ---
 
