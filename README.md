@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Python](style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.4-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![XGBoost](https://img.shields.io/badge/XGBoost-2.0-FF6600?style=for-the-badge)
 ![LightGBM](https://img.shields.io/badge/LightGBM-4.3-02B875?style=for-the-badge)
