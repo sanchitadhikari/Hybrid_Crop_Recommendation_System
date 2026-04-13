@@ -2,19 +2,14 @@
 
 <div align="center">
 
-<p align="center">
-  <span style="background-color:#3776AB;color:white;padding:6px 12px;border-radius:20px;margin:4px;display:inline-block;">Python 3.9+</span>
-  <span style="background-color:#F7931E;color:white;padding:6px 12px;border-radius:20px;margin:4px;display:inline-block;">scikit-learn 1.4</span>
-  <span style="background-color:#FF6600;color:white;padding:6px 12px;border-radius:20px;margin:4px;display:inline-block;">XGBoost 2.0</span>
-  <span style="background-color:#02B875;color:white;padding:6px 12px;border-radius:20px;margin:4px;display:inline-block;">LightGBM 4.3</span>
-  <span style="background-color:#FFCC00;color:black;padding:6px 12px;border-radius:20px;margin:4px;display:inline-block;">CatBoost 1.2</span>
-  <span style="background-color:#009688;color:white;padding:6px 12px;border-radius:20px;margin:4px;display:inline-block;">FastAPI 0.111</span>
-  <span style="background-color:#9B59B6;color:white;padding:6px 12px;border-radius:20px;margin:4px;display:inline-block;">SHAP Explainability</span>
-</p>
-
-<p align="center">
-  <span style="background-color:green;color:white;padding:6px 14px;border-radius:20px;">MIT License</span>
-</p>
+![Python](style=for-the-badge&logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.4-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-2.0-FF6600?style=for-the-badge)
+![LightGBM](https://img.shields.io/badge/LightGBM-4.3-02B875?style=for-the-badge)
+![CatBoost](https://img.shields.io/badge/CatBoost-1.2-FFCC00?style=for-the-badge)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![SHAP](https://img.shields.io/badge/SHAP-Explainability-9B59B6?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 **An intelligent crop recommendation engine powered by a hybrid ensemble of 8 machine learning models, SHAP explainability, and Monte Carlo uncertainty estimation.**
 
