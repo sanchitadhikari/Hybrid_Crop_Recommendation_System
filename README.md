@@ -7,7 +7,6 @@
 ![XGBoost](https://img.shields.io/badge/XGBoost-2.0-FF6600?style=for-the-badge)
 ![LightGBM](https://img.shields.io/badge/LightGBM-4.3-02B875?style=for-the-badge)
 ![CatBoost](https://img.shields.io/badge/CatBoost-1.2-FFCC00?style=for-the-badge)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![SHAP](https://img.shields.io/badge/SHAP-Explainability-9B59B6?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
